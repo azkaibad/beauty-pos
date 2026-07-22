@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             BranchSeeder::class,
             UserSeeder::class,
+            PaymentMethodSeeder::class,
+            MasterDataSeeder::class,
+            QueueTypeSeeder::class,
         ]);
     }
 }
