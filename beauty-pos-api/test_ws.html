@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test WebSocket (Reverb)</title>
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .status { padding: 10px; border-radius: 5px; font-weight: bold; margin-bottom: 20px; }
+        .connecting { background: #ffeeba; color: #856404; }
+        .connected { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>WebSocket Reverb Test</h1>
+    <div id="statusBox" class="status connecting">Status: CONNECTING...</div>
+    
+    <h3>Log Koneksi:</h3>
+    <pre id="logs" style="background: #f4f4f4; padding: 10px; border-radius: 5px; min-height: 100px;"></pre>
+
+    <script>
+        function logMsg(msg) {
+            document.getElementById('logs').innerText += msg + "\n";
+        }
+
+        // Tampilkan log Pusher internal
+        Pusher.logToConsole = true;
+        Pusher.log = (msg) => logMsg("Pusher Log: " + msg);
+
+        // Inisialisasi koneksi ke Reverb
+        var pusher = new Pusher('beauty-pos-key', {
+            cluster: 'mt1',
+            wsHost: '127.0.0.1',
+            wsPort: 8080,
+            forceTLS: false,
+            disableStats: true,
+            enabledTransports: ['ws', 'wss']
+        });
+
+        var statusBox = document.getElementById('statusBox');
+
+        pusher.connection.bind('state_change', function(states) {
+            logMsg("Connection State berubah: " + states.current);
+            statusBox.innerText = "Status: " + states.current.toUpperCase();
+            
+            if(states.current === 'connected') {
+                statusBox.className = "status connected";
+            } else if(states.current === 'unavailable' || states.current === 'failed') {
+                statusBox.className = "status error";
+            } else {
+                statusBox.className = "status connecting";
+            }
+        });
+    </script>
+</body>
+</html>

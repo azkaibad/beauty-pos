@@ -1,0 +1,28 @@
+@baseUrl = http://localhost:8000/api/v1
+@token = 10|1KKSEtHmYe8kHQl1ReZZn4QtnoL4dhnJ9MMDTO4C2fa2f0ed
+
+### Login as Owner (has manage_users permission)
+# @name login
+POST {{baseUrl}}/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "owner@beautypos.com",
+    "password": "password"
+}
+
+### Get Current User Profile (Me)
+GET {{baseUrl}}/me
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Get All Users (Requires manage_users permission)
+GET {{baseUrl}}/users
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Logout
+POST {{baseUrl}}/logout
+Authorization: Bearer {{token}}
+Accept: application/json

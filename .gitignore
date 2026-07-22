@@ -1,0 +1,43 @@
+# ===== Laravel / PHP =====
+beauty-pos-api/.env
+beauty-pos-api/vendor/
+beauty-pos-api/node_modules/
+beauty-pos-api/storage/logs/*.log
+beauty-pos-api/storage/framework/cache/data/
+beauty-pos-api/storage/framework/sessions/
+beauty-pos-api/storage/framework/views/
+beauty-pos-api/bootstrap/cache/*.php
+beauty-pos-api/public/storage
+beauty-pos-api/.phpunit.result.cache
+beauty-pos-api/.phpunit.cache/
+
+# ===== Flutter / Dart =====
+beauty_pos_app/build/
+beauty_pos_app/.dart_tool/
+beauty_pos_app/.flutter-plugins
+beauty_pos_app/.flutter-plugins-dependencies
+beauty_pos_app/.packages
+beauty_pos_app/.pub-cache/
+beauty_pos_app/.pub/
+beauty_pos_app/pubspec.lock
+beauty_pos_app/android/.gradle/
+beauty_pos_app/android/local.properties
+beauty_pos_app/android/captures/
+beauty_pos_app/android/key.properties
+beauty_pos_app/ios/Pods/
+beauty_pos_app/ios/.symlinks/
+beauty_pos_app/ios/Flutter/flutter_export_environment.sh
+beauty_pos_app/windows/flutter/ephemeral/
+beauty_pos_app/linux/flutter/ephemeral/
+
+# ===== IDEs =====
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+desktop.ini
