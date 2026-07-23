@@ -231,6 +231,11 @@ class TransactionController extends Controller
                             'reference_type' => Transaction::class,
                             'reference_id'   => $transaction->id,
                         ]);
+
+                        // Trigger alert jika stok tipis
+                        if ($product->refresh()->stock <= $product->min_stock) {
+                            broadcast(new \App\Events\LowStockAlert($product));
+                        }
                     }
                 }
             }

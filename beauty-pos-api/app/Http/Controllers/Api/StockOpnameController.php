@@ -201,6 +201,11 @@ class StockOpnameController extends Controller
                         'stock_after'  => $newStock,
                         'notes'        => "Penyesuaian stok opname {$stockOpname->opname_number}",
                     ]);
+
+                    // Trigger alert jika stok tipis
+                    if ($product->stock <= $product->min_stock) {
+                        broadcast(new \App\Events\LowStockAlert($product));
+                    }
                 }
             }
 
