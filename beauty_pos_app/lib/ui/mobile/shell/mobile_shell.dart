@@ -73,6 +73,12 @@ const _bottomNavItems = [
 // ─── DRAWER NAV CONFIG ──────────────────────────────────────────────────────
 const _drawerNavItems = [
   DrawerNavItem(
+    label: 'Customer',
+    icon: Icons.person_search_outlined,
+    route: '/customers',
+    requiredPermission: AppPermissions.manageCustomers,
+  ),
+  DrawerNavItem(
     label: 'Karyawan',
     icon: Icons.people_outline_rounded,
     route: '/users',

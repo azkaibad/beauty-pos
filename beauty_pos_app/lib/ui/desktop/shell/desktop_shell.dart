@@ -35,6 +35,13 @@ const _allNavItems = [
     route: '/dashboard',
   ),
   NavItem(
+    label: 'Customer',
+    icon: Icons.person_search_outlined,
+    iconSelected: Icons.person_search_rounded,
+    route: '/customers',
+    requiredPermission: AppPermissions.manageCustomers,
+  ),
+  NavItem(
     label: 'Kasir / POS',
     icon: Icons.point_of_sale_outlined,
     iconSelected: Icons.point_of_sale_rounded,

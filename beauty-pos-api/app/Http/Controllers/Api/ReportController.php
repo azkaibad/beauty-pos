@@ -231,14 +231,17 @@ class ReportController extends Controller
         return response()->json(['status' => 'success', 'data' => $closings]);
     }
 
-    // GET /api/v1/reports/export/{type}?from=&to= — placeholder untuk Excel
-    public function export(Request $request, string $type): JsonResponse
+    // GET /api/v1/reports/export/{type}?from=&to=
+    public function export(Request $request, string $type)
     {
-        // TODO: implement dengan maatwebsite/excel pada Sprint berikutnya
-        return response()->json([
-            'status'  => 'pending',
-            'message' => "Export '{$type}' akan tersedia setelah integrasi Excel library",
-            'type'    => $type,
-        ]);
+        $from = $request->get('from', today()->startOfMonth()->toDateString());
+        $to   = $request->get('to',   today()->toDateString());
+
+        return match ($type) {
+            'sales'    => \Maatwebsite\Excel\Facades\Excel::download(new \App\Exports\SalesExport($from, $to), "sales_report_{$from}_{$to}.xlsx"),
+            'stock'    => \Maatwebsite\Excel\Facades\Excel::download(new \App\Exports\StockExport(), "stock_report.xlsx"),
+            'expenses' => \Maatwebsite\Excel\Facades\Excel::download(new \App\Exports\ExpenseExport($from, $to), "expenses_report_{$from}_{$to}.xlsx"),
+            default    => response()->json(['status' => 'error', 'message' => "Tipe export '{$type}' tidak didukung"], 400),
+        };
     }
 }

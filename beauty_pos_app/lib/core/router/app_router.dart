@@ -8,6 +8,7 @@ import '../../core/auth/auth_state.dart';
 import '../../features/auth/login_screen.dart';
 import '../../features/auth/profile_screen.dart';
 import '../../features/auth/change_password_screen.dart';
+import '../../features/customers/screens/customer_list_screen.dart';
 import '../../features/dashboard/dashboard_screen.dart';
 import '../../ui/desktop/shell/desktop_shell.dart';
 import '../../ui/mobile/shell/mobile_shell.dart';
@@ -46,6 +47,10 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(
             path: '/dashboard',
             builder: (context, state) => const DashboardScreen(),
+          ),
+          GoRoute(
+            path: '/customers',
+            builder: (context, state) => const CustomerListScreen(),
           ),
           GoRoute(
             path: '/pos',
