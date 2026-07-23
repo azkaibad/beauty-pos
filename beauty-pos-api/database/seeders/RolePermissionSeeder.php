@@ -29,6 +29,8 @@ class RolePermissionSeeder extends Seeder
             'manage_followup', // data followup
             'manage_medical_records', // rekam medis
             'manage_customers', // pelanggan
+            'manage_products',
+            'manage_treatments',
         ];
 
         foreach ($permissions as $permission) {
@@ -42,7 +44,9 @@ class RolePermissionSeeder extends Seeder
             'manage_pos',
             'view_reports',
             'manage_followup',
-            'manage_customers'
+            'manage_customers',
+            'manage_products',
+            'manage_treatments'
         ]);
 
         $dokter = Role::findByName('dokter');

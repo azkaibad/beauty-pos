@@ -79,6 +79,18 @@ const _drawerNavItems = [
     requiredPermission: AppPermissions.manageCustomers,
   ),
   DrawerNavItem(
+    label: 'Produk',
+    icon: Icons.inventory_2_outlined,
+    route: '/products',
+    requiredPermission: AppPermissions.manageProducts,
+  ),
+  DrawerNavItem(
+    label: 'Treatment',
+    icon: Icons.spa_outlined,
+    route: '/treatments',
+    requiredPermission: AppPermissions.manageTreatments,
+  ),
+  DrawerNavItem(
     label: 'Karyawan',
     icon: Icons.people_outline_rounded,
     route: '/users',

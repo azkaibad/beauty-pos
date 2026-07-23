@@ -53,6 +53,14 @@ final routerProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => const CustomerListScreen(),
           ),
           GoRoute(
+            path: '/products',
+            builder: (context, state) => const _PlaceholderPage(title: 'Master Produk'),
+          ),
+          GoRoute(
+            path: '/treatments',
+            builder: (context, state) => const _PlaceholderPage(title: 'Master Treatment'),
+          ),
+          GoRoute(
             path: '/pos',
             builder: (context, state) => const _PlaceholderPage(title: 'Kasir / POS'),
           ),

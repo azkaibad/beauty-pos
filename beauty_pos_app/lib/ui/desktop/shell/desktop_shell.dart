@@ -42,6 +42,20 @@ const _allNavItems = [
     requiredPermission: AppPermissions.manageCustomers,
   ),
   NavItem(
+    label: 'Produk',
+    icon: Icons.inventory_2_outlined,
+    iconSelected: Icons.inventory_2_rounded,
+    route: '/products',
+    requiredPermission: AppPermissions.manageProducts,
+  ),
+  NavItem(
+    label: 'Treatment',
+    icon: Icons.spa_outlined,
+    iconSelected: Icons.spa_rounded,
+    route: '/treatments',
+    requiredPermission: AppPermissions.manageTreatments,
+  ),
+  NavItem(
     label: 'Kasir / POS',
     icon: Icons.point_of_sale_outlined,
     iconSelected: Icons.point_of_sale_rounded,

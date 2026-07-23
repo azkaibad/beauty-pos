@@ -12,4 +12,6 @@ class AppPermissions {
   static const String manageFollowup = 'manage_followup';
   static const String manageMedicalRecords = 'manage_medical_records';
   static const String manageCustomers = 'manage_customers';
+  static const String manageProducts = 'manage_products';
+  static const String manageTreatments = 'manage_treatments';
 }

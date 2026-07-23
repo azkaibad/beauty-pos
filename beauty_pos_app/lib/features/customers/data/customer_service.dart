@@ -16,7 +16,7 @@ class CustomerService {
     String? gender,
     bool? isActive,
   }) async {
-    final response = await _dio.get('/api/v1/customers', queryParameters: {
+    final response = await _dio.get('/customers', queryParameters: {
       'page': page,
       'per_page': perPage,
       if (search != null && search.isNotEmpty) 'search': search,
@@ -27,22 +27,22 @@ class CustomerService {
   }
 
   Future<CustomerModel> getCustomer(int id) async {
-    final response = await _dio.get('/api/v1/customers/$id');
+    final response = await _dio.get('/customers/$id');
     return CustomerModel.fromJson(response.data['data']);
   }
 
   Future<CustomerModel> createCustomer(Map<String, dynamic> data) async {
-    final response = await _dio.post('/api/v1/customers', data: data);
+    final response = await _dio.post('/customers', data: data);
     return CustomerModel.fromJson(response.data['data']);
   }
 
   Future<CustomerModel> updateCustomer(int id, Map<String, dynamic> data) async {
-    final response = await _dio.put('/api/v1/customers/$id', data: data);
+    final response = await _dio.put('/customers/$id', data: data);
     return CustomerModel.fromJson(response.data['data']);
   }
 
   Future<void> deleteCustomer(int id) async {
-    await _dio.delete('/api/v1/customers/$id');
+    await _dio.delete('/customers/$id');
   }
 }
 
